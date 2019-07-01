@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gcr.io/PROJECT/sample-app
+        image: gcr.io/rock-range-207622/sample-app
         resources:
           limits:
             memory: "500Mi"
