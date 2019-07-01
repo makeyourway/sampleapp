@@ -6,8 +6,8 @@ node {
     }
 
     stage('build-image') {
-        sh 'echo "image repo" :$IMAGE_REPO'
         sh 'docker build -t dineshrobin/sampleapp:latest .'
+        sh 'docker push dineshrobin/sampleapp:latest .'
     }
     
     archiveArtifacts 'properties'
