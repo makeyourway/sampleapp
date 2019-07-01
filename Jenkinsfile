@@ -6,7 +6,7 @@ node {
     }
 
     stage('build-image') {
-        sh 'echo $IMAGE_REPO'
+        sh 'echo "image repo" :$IMAGE_REPO'
         sh 'docker build -t $IMAGE_REPO:$IMAGE_TAG .'
     }
     
