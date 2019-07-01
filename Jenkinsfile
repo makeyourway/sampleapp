@@ -10,9 +10,5 @@ node {
         sh 'docker build -t dineshrobin/sampleapp:latest .'
     }
     
-    stage('push-image') {
-        sh 'gcloud docker -- push dineshrobin/sampleapp:latest'
-    }
-    
     archiveArtifacts 'properties'
 }
