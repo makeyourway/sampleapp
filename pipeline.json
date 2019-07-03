@@ -1,6 +1,6 @@
 {
   "name": "Deploy",
-  "application": "sample1",
+  "application": "sample2",
   "id": "2650c7c9-dd0a-4f59-ab0d-9c96a34cd1bc",
   "appConfig": {},
   "keepWaitingPipelines": true,
