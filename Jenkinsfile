@@ -6,8 +6,8 @@ node {
     }
 
     stage('build-image') {
-        docker build -t dineshrobin/sampleapp:latest .
-        docker push dineshrobin/sampleapp:latest
+       sh 'docker build -t dineshrobin/sampleapp:latest .'
+       sh 'docker push dineshrobin/sampleapp:latest'
     }
     
     archiveArtifacts 'properties'
