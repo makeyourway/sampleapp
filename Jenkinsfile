@@ -6,7 +6,6 @@ node {
     }
 
     stage('build-image') {
-       sh 'docker version'
        sh 'docker build -t dineshrobin/sampleapp:latest .'
        sh 'docker push dineshrobin/sampleapp:latest'
     }
