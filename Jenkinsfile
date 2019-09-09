@@ -1,11 +1,6 @@
 node {
     checkout scm
-    
-    environment {
-    registry = "index.docker.com/dineshrobin"
-    registryCredential = 'docker-auth'
-  }
-    
+   
     stage('save-env') {
         sh 'env > properties'
     }
@@ -13,6 +8,12 @@ node {
     stage('build-image') {
        sh 'docker build -t dineshrobin/sampleapp:latest .'
        sh 'docker push dineshrobin/sampleapp:latest'
+    }
+    
+    stage('push image'){
+    docker.withRegistry('https://index.docker.com', 'docker-auth') {
+
+        def customImage = docker.build("sampleapp:${env.BUILD_ID}")
     }
     
     archiveArtifacts 'properties'
