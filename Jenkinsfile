@@ -11,9 +11,9 @@ node {
     }
     
     stage('push image'){
-    docker.withRegistry('https://index.docker.com', 'docker-auth') {
-
-        def customImage = docker.build("sampleapp:${env.BUILD_ID}")
+    docker.withRegistry('https://index.docker.com', 'docker-auth')
+        sh 'docker push dineshrobin/sampleapp:latest'
+    }   
     }
     
     archiveArtifacts 'properties'
