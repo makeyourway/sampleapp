@@ -3,7 +3,7 @@ node {
     
     environment {
     registry = "index.docker.com/dineshrobin"
-    registryCredential = 'dockerhub'
+    registryCredential = 'docker-auth'
   }
     
     stage('save-env') {
