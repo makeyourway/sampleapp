@@ -1,6 +1,11 @@
 node {
     checkout scm
     
+    environment {
+    registry = "index.docker.com/dineshrobin"
+    registryCredential = 'dockerhub'
+  }
+    
     stage('save-env') {
         sh 'env > properties'
     }
