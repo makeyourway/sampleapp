@@ -7,12 +7,13 @@ node {
     
 
     stage('build-image') {
-       sh 'docker build -t dineshrobin/sampleapp:latest .'
+       app = docker.build("dineshrobin/testapp")
     }
     
     stage('push image'){
-        docker.withRegistry('https://index.docker.com', 'docker-login'){
-            sh 'docker push dineshrobin/sampleapp:latest'
+        docker.withRegistry('https://index.docker.com', 'dockerhub-auth'){
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
     }   
     }
     archiveArtifacts 'properties'
