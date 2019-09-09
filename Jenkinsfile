@@ -5,16 +5,6 @@ node {
         sh 'env > properties'
     }
     
-    
-    stage('build-image') {
-    docker.withRegistry('https://index.docker.com', 'docker-auth') {
-
-        def customImage = docker.build("sampleapp:${env.BUILD_ID}")
-
-        /* Push the container to the custom Registry */
-        customImage.push()
-    }
-    }
 
     stage('build-image') {
        sh 'docker build -t dineshrobin/sampleapp:latest .'
