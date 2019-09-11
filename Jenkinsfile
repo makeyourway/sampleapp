@@ -16,5 +16,23 @@ node {
             app.push("latest")
     }   
     }
+    stage('upload artifacts'){
+         stage('Upload') {
+
+        dir('path/to/your/project/workspace'){
+
+            pwd(); //Log current directory
+
+            withAWS(region:'us-east-1',credentials:'aws-creds') {
+
+                 def identity=awsIdentity();//Log AWS credentials
+
+                // Upload files from working directory 'dist' in your project workspace
+                s3Upload(bucket:"yourBucketName", workingDir:'dist', includePathPattern:'**/*');
+            }
+
+        };
+    }
+    }
     archiveArtifacts 'properties'
 }
